@@ -98,6 +98,16 @@ export class CategoryComponent implements OnInit {
       }
     });  
   }
+
+  search(data: string) {
+    if(this.search.length === 0) {
+      return this.getCategories();
+    }
+
+    this._categoryService.getCategoryById(data).subscribe( (resp: any) => {
+      this.processCategoriesResponse(resp);
+    });
+  }
 }
 
 export interface CategoryElement {
