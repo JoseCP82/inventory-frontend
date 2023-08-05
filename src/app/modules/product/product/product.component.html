@@ -3,7 +3,7 @@
     <mat-card-header>
         <div>
             <mat-form-field hintLabel="Busque productos" appearance="fill">
-                <mat-label>Buscar Categorías</mat-label>
+                <mat-label>Buscar Productos</mat-label>
                 <input matInput #input>
             </mat-form-field>
         </div>
@@ -12,7 +12,7 @@
         <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
             <ul fxLayout="row" fxLayoutGap="20px">
                 <li>
-                    <button mat-raised-button color="primary">
+                    <button mat-raised-button color="primary" (click)="openProductDialog()">
                         Agregar Producto
                     </button>
                 </li>
