@@ -49,4 +49,14 @@ export class ProductService {
     const endpoint = `${base_url}/products/${id}`;
     return this.http.delete(endpoint);
   }
+
+  /**
+   * Get product by name
+   * @param name 
+   * @returns 
+   */
+  getProductsByName(name: any) {
+    const endpoint = `${base_url}/products/filter/${name}`;
+    return this.http.get(endpoint);
+  }
 }
