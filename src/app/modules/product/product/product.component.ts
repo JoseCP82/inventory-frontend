@@ -6,6 +6,7 @@ import { MatSnackBar, MatSnackBarRef, SimpleSnackBar } from '@angular/material/s
 import { NewProductComponent } from '../new-product/new-product.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmComponent } from '../../shared/components/confirm/confirm.component';
+import { UtilService } from '../../shared/services/util.service';
 
 @Component({
   selector: 'app-product',
@@ -14,12 +15,16 @@ import { ConfirmComponent } from '../../shared/components/confirm/confirm.compon
 })
 export class ProductComponent implements OnInit {
 
+  isAdmin: any;
+
   constructor(private _productService: ProductService,
               private snackBar: MatSnackBar,
-              public dialog: MatDialog) {}
+              public dialog: MatDialog,
+              private _util: UtilService) {}
 
   ngOnInit(): void {
     this.getProducts();
+    this.isAdmin = this._util.isAdmin();
   }
 
   displayedColumns: String[] = ['id', 'name', 'price', 'account', 'category', 'picture', 'actions'];
